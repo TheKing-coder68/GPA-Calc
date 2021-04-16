@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename="sign-up.css")}}">
+    {% block title %}<title>Signup</title>{% endblock %}
+</head>
+<body>
+    {% block content %}
+        {% with messages=get_flashed_messages()%}
+	        {% if messages %}
+		        {%for msg in messages%}
+			        <p>{{msg}}</p>
+		        {% endfor %}
+	        {% endif %}
+        {% endwith %}
+        <h1 align="center">Signup</h1>
+        <div class="signup-form">
+            <form method="POST">
+                <!--First Name-->
+                <label for="firstName"> First Name </label> <br>
+                <input type="text" name="firstName" id="firstName" placeholder="First Name"> <br>
+                <!--Last Name-->
+                <label for="lastName"> Last Name </label> <br>
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name"> <br>
+                <label for="userName"> Username </label> <br>
+                <input type="text" name="username" id="username" placeholder="Username"> <br>
+                <!--Email-->
+                <label for="email"> Email </label> <br>
+                <input type="email" name="email" id="email" placeholder="Email"> <br>
+                <!--Password-->
+                <label for="password"> Password</label> <br>
+                <input type="password" name="password" id="password" placeholder="Password"> <br>
+                <!--Submit-->
+                <input type="submit" id="submit" placeholder="Submit">
+            </form>
+        </div>
+    {% endblock %}
+</body>
+</html>
